@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rainbow Student Expense Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page">
+    <div class="header-card">
+      <div>
+        <span class="badge-top">CAMPUS WALLET</span>
+        <h1>Student Expense Tracker</h1>
+        <p id="vibeMessage" class="vibe-text">Fresh start! Log your daily expenses in Rs.</p>
+      </div>
+      <div class="budget-box">
+        <label for="budgetInput">Monthly Budget (Rs.)</label>
+        <input type="number" id="budgetInput" value="4000" min="50" onchange="saveBudget()">
+      </div>
+    </div>
+
+    <div class="summary-grid">
+      <div class="summary-card card-coral">
+        <span>Total Spent</span>
+        <strong id="totalSpent">Rs. 0.00</strong>
+      </div>
+      <div class="summary-card card-teal">
+        <span>Balance Left</span>
+        <strong id="remainingBudget">Rs. 4000.00</strong>
+      </div>
+      <div class="summary-card card-amber">
+        <span>Expenses</span>
+        <strong id="entryCount">0</strong>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2>Add Expense</h2>
+      <div class="form-row">
+        <input type="text" id="name" placeholder="Item (e.g. Lunch, Metro, Books)">
+        <input type="number" id="amount" placeholder="Amount (Rs.)">
+        <select id="category">
+          <option value="">Category</option>
+          <option value="Food">Food</option>
+          <option value="Travel">Travel</option>
+          <option value="Shopping">Shopping</option>
+          <option value="Education">Education</option>
+          <option value="Other">Other</option>
+        </select>
+        <button type="button" class="btn-add" onclick="addExpense()">Add</button>
+      </div>
+      <p id="error"></p>
+    </div>
+
+    <div class="panel">
+      <h2>Category Mix</h2>
+      <div id="categoryBreakdown">
+        <p class="empty-text">Add expenses to see colorful category bars.</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="list-header">
+        <h2>Expense List</h2>
+        <div class="filter-actions">
+          <select id="filter" onchange="showExpenses()">
+            <option value="All">All Categories</option>
+            <option value="Food">Food</option>
+            <option value="Travel">Travel</option>
+            <option value="Shopping">Shopping</option>
+            <option value="Education">Education</option>
+            <option value="Other">Other</option>
+          </select>
+          <button type="button" class="btn-clear" onclick="clearAllExpenses()">Clear All</button>
+        </div>
+      </div>
+
+      <ul id="expenseList"></ul>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
